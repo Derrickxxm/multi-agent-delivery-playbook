@@ -40,7 +40,7 @@ Python >= 3.11, stdlib only at runtime; pytest for tests. Package `playbook`:
 - `docs/council-example.md`: a sanitized two-round council (3 members, devil's advocate, anonymized round 2, chair rulings) on a synthetic question, plus `docs/council-example.json` that passes `council.validate`.
 - README: first paragraph = what and why; Mermaid flowchart of the 10 steps; "Run it" = `pip install -e . && python -m playbook demo && pytest`; table of blocked attacks; roles table (Owner / architect agent / executor agent); the test count stated must equal the real `pytest` result.
 - `.github/workflows/ci.yml`: ubuntu-latest, python 3.11, run demo + pytest.
-- `scripts/public_scan.py`: fails (exit 1) if repo text contains IPv4 addresses, `@` emails other than the noreply placeholder, or any term from a deny-list file passed as argument.
+- `scripts/public_scan.py`: fails (exit 1) if repo text contains IPv4 addresses, `@` emails other than the noreply placeholder and RFC 2606 reserved example domains (example.com/.org/.net, *.example, *.invalid), or any term from a deny-list file passed as argument.
 
 ## Not doing
 No network, no real data, no secrets, no third-party runtime deps.
