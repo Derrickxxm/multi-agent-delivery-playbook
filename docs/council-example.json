@@ -1,0 +1,18 @@
+{
+  "question": "Should a synthetic Web service add a cache layer?",
+  "round1": {
+    "model-a": "Measure request latency and repeated reads before adding a cache.",
+    "model-b": "Prototype a short-lived cache for public, read-only responses.",
+    "model-c": "Keep direct reads until measurements justify invalidation complexity."
+  },
+  "round2_positions": {
+    "A": "Collect a baseline of latency, repeated reads, and database load.",
+    "B": "If the baseline shows repeated expensive reads, trial a bounded cache with expiry.",
+    "C": "Challenge the proposal with stale-data and invalidation failure scenarios."
+  },
+  "devils_advocate": "model-c",
+  "disagreements": [
+    {"id": "D1", "ruling": "Measure first; no cache implementation is authorized yet."},
+    {"id": "D2", "ruling": "A later trial must define expiry, memory bounds, and a freshness acceptance check."}
+  ]
+}
